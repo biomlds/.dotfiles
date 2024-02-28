@@ -16,3 +16,4 @@ chmod a+x ~/.local/bin/yadm
 rm -rf ~/.local/bin/yadm
 
 echo "Dotfiles setup completed!"
+

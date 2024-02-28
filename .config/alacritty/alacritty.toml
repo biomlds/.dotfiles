@@ -1,0 +1,13 @@
+[font]
+size = 16
+
+[font.normal]
+#family = "JetBrainsMono Nerd Font Mono"
+family = "Hack Nerd Font"
+#family = "sketchybar-app-font"
+[window]
+#decorations = "none"
+
+[window.padding]
+x = 7
+y = 0

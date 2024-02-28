@@ -1,0 +1,372 @@
+# Reference: https://github.com/i3/i3/blob/next/etc/config
+
+
+enable-normalization-flatten-containers = false
+enable-normalization-opposite-orientation-for-nested-containers = true
+
+start-at-login = true
+
+gaps.inner.horizontal = 6
+gaps.inner.vertical =   6
+gaps.outer.left =       3
+gaps.outer.bottom =     5
+gaps.outer.top =        30
+gaps.outer.right =      3
+
+
+# Run Sketchybar together with AeroSpace
+# sketchbar has a built-in detection of already running process,
+# so it won't be run twice on AeroSpace restart
+after-startup-command = ['exec-and-forget sketchybar']
+
+# Notify Sketchybar about workspace change
+exec-on-workspace-change = ['/bin/bash', '-c',
+    'sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE'
+]
+
+[mode.main.binding]
+cmd-enter = "exec-and-forget  /usr/local/bin/alacritty"
+cmd-shift-o = "exec-and-forget open -na 'Brave Browser.app' --args --profile-directory='[Work] Profile'" 
+cmd-shift-h = "exec-and-forget open -na 'Brave Browser.app' --args --profile-directory='[Home] Profile'" 
+cmd-shift-g = "exec-and-forget open -na 'Brave Browser.app' --args --incognito" 
+
+#alt-enter = 'exec-and-forget /usr/local/bin/sketchybar&'
+
+alt-h = 'focus left'
+alt-j = 'focus down'
+alt-k = 'focus up'
+alt-l = 'focus right'
+
+alt-shift-h = 'move left'
+alt-shift-j = 'move down'
+alt-shift-k = 'move up'
+alt-shift-l = 'move right'
+
+alt-backslash = 'split horizontal'
+alt-minus = 'split vertical'
+
+alt-f = 'fullscreen'
+alt-shift-q = 'close'
+
+alt-s = 'layout v_accordion' # 'layout stacking' in i3
+alt-w = 'layout h_accordion' # 'layout tabbed' in i3
+alt-e = 'layout tiles horizontal vertical' # 'layout toggle split' in i3
+alt-shift-space = 'layout floating tiling' # 'floating toggle' in i3
+
+
+alt-tab = 'workspace-back-and-forth'
+
+ctrl-alt-shift-h = 'move-workspace-to-monitor prev --wrap-around'
+ctrl-alt-shift-l = 'move-workspace-to-monitor next --wrap-around'
+
+
+alt-1 = 'workspace 1_Term'
+alt-2 = 'workspace 2_Web'
+alt-3 = 'workspace 3_Dev'
+alt-4 = 'workspace 4_Docs'
+alt-5 = 'workspace 5_Comm'
+alt-6 = 'workspace 6_Media'
+alt-7 = 'workspace 7_Sys'
+alt-8 = 'workspace 8_Pers'
+alt-9 = 'workspace 9_Fin'
+alt-0 = 'workspace 0_RDP'
+
+
+alt-shift-1 = 'move-node-to-workspace 1_Term'
+alt-shift-2 = 'move-node-to-workspace 2_Web'
+alt-shift-3 = 'move-node-to-workspace 3_Dev'
+alt-shift-4 = 'move-node-to-workspace 4_Docs'
+alt-shift-5 = 'move-node-to-workspace 5_Comm'
+alt-shift-6 = 'move-node-to-workspace 6_Media'
+alt-shift-7 = 'move-node-to-workspace 7_Sys'
+alt-shift-8 = 'move-node-to-workspace 8_Pers'
+alt-shift-9 = 'move-node-to-workspace 9_Fin'
+alt-shift-0 = 'move-node-to-workspace 0_RDP'
+
+alt-shift-c = 'reload-config'
+alt-shift-r = 'mode resize'
+
+[mode.resize.binding]
+h = 'resize width -50'
+j = 'resize height +50'
+k = 'resize height -50'
+l = 'resize width +50'
+enter = 'mode main'
+esc = 'mode main'
+
+
+[workspace-to-monitor-force-assignment]
+#9_RDP = ['main', '^built-in retina display$']
+7_Sys  = ['secondary', 'main']
+5_Comm = ['secondary', 'main']
+0_RDP = ['secondary', 'main']
+
+[[on-window-detected]]
+check-further-callbacks = true
+#if.window-title-regex-substring = 'Brave'
+if.app-id = 'com.brave.Browser' 
+run = 'move-node-to-workspace 2_Web'
+
+[[on-window-detected]]
+check-further-callbacks = true
+if.window-title-regex-substring = 'Amphetamine'
+run = 'move-node-to-workspace 7_Sys'
+
+[[on-window-detected]]
+check-further-callbacks = true
+if.app-id = 'com.apple.ActivityMonitor'
+#if.window-title-regex-substring = 'Activity Monitor'
+run = ['layout tiling', 'move-node-to-workspace 7_Sys']
+
+[[on-window-detected]]
+check-further-callbacks = true
+#if.window-title-regex-substring = 'AntivirusforMac'
+if.app-id = 'com.bitdefender.antivirusformac'
+run = 'move-node-to-workspace 7_Sys'
+
+[[on-window-detected]]
+check-further-callbacks = true
+if.window-title-regex-substring = 'AppCleaner'
+run = 'move-node-to-workspace 7_Sys'
+
+[[on-window-detected]]
+check-further-callbacks = true
+#if.window-title-regex-substring = 'Disk Utility'
+if.app-id = 'com.apple.DiskUtility'
+run = 'move-node-to-workspace 7_Sys'
+
+[[on-window-detected]]
+check-further-callbacks = true
+#if.window-title-regex-substring = 'SF Symbols'
+if.app-id = 'com.apple.SFSymbols'
+run = 'move-node-to-workspace 7_Sys'
+
+[[on-window-detected]]
+check-further-callbacks = true
+if.window-title-regex-substring = 'TimeMachine'
+run = 'move-node-to-workspace 7_Sys'
+
+[[on-window-detected]]
+check-further-callbacks = true
+if.window-title-regex-substring = 'Rectangle'
+run = 'move-node-to-workspace 7_Sys'
+
+[[on-window-detected]]
+check-further-callbacks = true
+if.window-title-regex-substring = 'BitdefenderAgent'
+run = 'move-node-to-workspace 7_Sys'
+
+[[on-window-detected]]
+check-further-callbacks = true
+#if.window-title-regex-substring = 'Alacritty'
+if.app-id = 'org.alacritty'
+run = 'move-node-to-workspace 1_Term'
+
+[[on-window-detected]]
+check-further-callbacks = true
+#if.window-title-regex-substring = 'Terminal'
+if.app-id = 'com.apple.Terminal'
+run = 'move-node-to-workspace 1_Term'
+
+[[on-window-detected]]
+check-further-callbacks = true
+if.window-title-regex-substring = 'Bitdefender VPN'
+run = 'move-node-to-workspace 2_Web'
+
+[[on-window-detected]]
+check-further-callbacks = true
+if.window-title-regex-substring = 'Tailscale'
+run = 'move-node-to-workspace 2_Web'
+
+[[on-window-detected]]
+check-further-callbacks = true
+if.app-id = 'com.apple.Safari'
+#if.window-title-regex-substring = 'Safari'
+run = 'move-node-to-workspace 2_Web'
+
+[[on-window-detected]]
+check-further-callbacks = true
+#if.window-title-regex-substring = 'Docker'
+if.app-id = 'com.docker.docker'
+run = 'move-node-to-workspace 3_Dev'
+
+[[on-window-detected]]
+check-further-callbacks = true
+if.window-title-regex-substring = 'Podman Desktop'
+run = 'move-node-to-workspace 3_Dev'
+
+[[on-window-detected]]
+check-further-callbacks = true
+#if.window-title-regex-substring = 'Visual Studio Code'
+if.app-id = 'com.microsoft.VSCode'
+run = 'move-node-to-workspace 3_Dev'
+
+[[on-window-detected]]
+check-further-callbacks = true
+#if.window-title-regex-substring = 'Multisession Desktop'
+if.app-id = 'com.microsoft.rdc.macos'
+run = 'move-node-to-workspace 0_RDP'
+
+[[on-window-detected]]
+check-further-callbacks = true
+if.window-title-regex-substring = 'Microsoft Remote Desktop'
+run = 'move-node-to-workspace 0_RDP'
+
+[[on-window-detected]]
+check-further-callbacks = true
+if.window-title-regex-substring = 'Microsoft Remote Desktop'
+run = 'layout floating'
+
+[[on-window-detected]]
+check-further-callbacks = true
+if.window-title-regex-substring = 'Adobe Acrobat Reader'
+run = 'move-node-to-workspace 4_Docs'
+
+[[on-window-detected]]
+check-further-callbacks = true
+if.window-title-regex-substring = 'GIMP'
+run = 'move-node-to-workspace 6_Media'
+
+[[on-window-detected]]
+check-further-callbacks = true
+if.window-title-regex-substring = 'Maps'
+run = 'move-node-to-workspace 6_Media'
+
+[[on-window-detected]]
+check-further-callbacks = true
+if.window-title-regex-substring = 'Preview'
+run = 'move-node-to-workspace 4_Docs'
+
+[[on-window-detected]]
+check-further-callbacks = true
+if.window-title-regex-substring = 'QuickTime Player'
+run = 'move-node-to-workspace 6_Media'
+
+[[on-window-detected]]
+check-further-callbacks = true
+if.window-title-regex-substring = 'Weather'
+run = 'move-node-to-workspace 8_Pers'
+
+[[on-window-detected]]
+check-further-callbacks = true
+if.window-title-regex-substring = 'KeePassXC'
+run = 'move-node-to-workspace 8_Pers'
+
+[[on-window-detected]]
+check-further-callbacks = true
+if.window-title-regex-substring = 'Mail'
+run = 'move-node-to-workspace 8_Pers'
+
+[[on-window-detected]]
+check-further-callbacks = true
+if.window-title-regex-substring = 'Reminders'
+run = 'move-node-to-workspace 8_Pers'
+
+[[on-window-detected]]
+check-further-callbacks = true
+if.window-title-regex-substring = 'Stickies'
+run = 'move-node-to-workspace 8_Pers'
+
+[[on-window-detected]]
+check-further-callbacks = true
+if.window-title-regex-substring = 'Notes'
+run = 'move-node-to-workspace 8_Pers'
+
+[[on-window-detected]]
+check-further-callbacks = true
+if.window-title-regex-substring = 'ONLYOFFICE'
+run = 'move-node-to-workspace 4_Docs'
+
+[[on-window-detected]]
+check-further-callbacks = true
+if.window-title-regex-substring = 'Obsidian'
+run = 'move-node-to-workspace 4_Docs'
+
+[[on-window-detected]]
+check-further-callbacks = true
+if.window-title-regex-substring = 'TextEdit'
+run = 'move-node-to-workspace 4_Docs'
+
+[[on-window-detected]]
+check-further-callbacks = true
+if.window-title-regex-substring = 'Telegram'
+run = 'move-node-to-workspace 5_Comm'
+
+[[on-window-detected]]
+check-further-callbacks = true
+if.window-title-regex-substring = 'Slack'
+run = 'move-node-to-workspace 5_Comm'
+
+[[on-window-detected]]
+check-further-callbacks = true
+#if.window-title-regex-substring = 'TradingView'
+if.app-id = 'com.tradingview.tradingviewapp.desktop'
+run = 'move-node-to-workspace 9_Fin'
+
+[[on-window-detected]]
+check-further-callbacks = true
+#if.window-title-regex-substring = 'Stocks'
+if.app-id = 'com.apple.stocks'
+run = 'move-node-to-workspace 9_Fin'
+
+
+
+#S Activity Monitor
+#S Amphetamine
+#S AntivirusforMac
+#S AppCleaner
+#S Disk Utility
+#S SF Symbols
+#S TimeMachine
+#S Rectangle
+#S BitdefenderAgent
+#T Alacritty
+#T Terminal
+#W Bitdefender VPN
+#W Brave Browser
+#W Tailscale
+#W Safari
+#D Docker
+#D Podman Desktop
+#D Visual Studio Code
+#RDP Microsoft Remote Desktop
+#Doc Adobe Acrobat Reader
+#M GIMP
+#M Maps
+#Doc Preview
+#M QuickTime Player
+#P Weather
+#P KeePassXC
+#P Mail
+#P Reminders
+#P Stickies
+#P Notes
+#O ONLYOFFICE
+#O Obsidian
+#O TextEdit
+#C Telegram
+#C Slack
+#Fin TradingView
+#Fin Stocks
+
+#after-startup-command = [
+#    # JankyBorders has a built-in detection of already running process,
+#    # so it won't be run twice on AeroSpace restart
+#    #'exec-and-forget  /usr/local/bin/borders active_color=0xff7816e3 inactive_color=0xff414550 width=10.0 style=round width=10.0' #, 
+#    #'exec-and-forget /Users/kirk/Downloads/SketchyBar-master/sketchybar' 
+#]
+##
+##
+### Run Sketchybar together with AeroSpace
+### sketchbar has a built-in detection of already running process,
+### so it won't be run twice on AeroSpace restart
+#
+##after-startup-command = ['exec-and-forget sketchybar']
+#
+##after-startup-command = ['exec-and-forget sketchybar', 'exec-and-forget borders active_color=0xffe1e3e4 inactive_color=0xff494d64 width=5.0']
+#
+## Notify Sketchybar about workspace change
+#exec-on-workspace-change = ['/bin/bash', '-c',
+#    'sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE'
+#]
+

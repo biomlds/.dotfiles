@@ -20,9 +20,6 @@ export WORDCHARS=${WORDCHARS//[\/]} # remove / from wordchars so that / is a sep
 ### ---- Source plugins -----------------------------------
 [[ -f $ZSH/plugins/plugins.zsh ]] && source $ZSH/plugins/plugins.zsh
 
-### ---- gpg agent config with pinentry-mac ---------
-export GPG_TTY=$(tty) # based on this guide https://gist.github.com/troyfontaine/18c9146295168ee9ca2b30c00bd1b41e
-
 ### ---- load pyenv ---------
 export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
@@ -30,10 +27,6 @@ eval "$(pyenv init -)"
 
 ### add local bin to path
 export PATH=$HOME/bin:$PATH
-
-### ---- load sdkman ---------
-export SDKMAN_DIR="$HOME/.sdkman"
-[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
 ### ---- Load Starship -----------------------------------
 eval "$(starship init zsh)"
