@@ -30,7 +30,5 @@ brew bundle install --file ~/Brewfile_test
 # setup Mac default settings
 cd ~/.configs/setup_mac/macos_settings/ && bash ~/.configs/setup_mac/macos_settings/main.bash
 
-rm ~/.local/bin/yadm
-
 # done
 echo "Bootstrapping complete"
