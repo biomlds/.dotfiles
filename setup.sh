@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# Create directory if it doesn't exist
+# Create directory if it does not exist
 mkdir -p ~/.local/bin
 
 # Download yadm
