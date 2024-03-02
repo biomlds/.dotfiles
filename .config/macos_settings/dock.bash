@@ -35,6 +35,9 @@ defaults write NSGlobalDomain AppleInterfaceStyle -string "Dark"
 # Set the icon size of Dock items to 60 pixels
 defaults write com.apple.dock tilesize -int 60
 
+# Set the Dock position to the left side of the screen
+defaults write com.apple.dock orientation -string left
+
 # Lock dock size
 defaults write com.apple.dock size-immutable -bool true
 
