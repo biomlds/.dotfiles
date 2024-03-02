@@ -25,7 +25,7 @@ fi
 
 
 echo ">>> Installing brew packages.."
-brew bundle install --file ~/Brewfile_test
+brew bundle install --file ~/Brewfile
 
 # setup Mac default settings
 cd ~/.configs/setup_mac/macos_settings/ && bash ~/.configs/setup_mac/macos_settings/main.bash
