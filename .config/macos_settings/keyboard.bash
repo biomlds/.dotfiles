@@ -21,8 +21,8 @@ defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
 defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
 
 # Set a fast keyboard repeat rate
-defaults write NSGlobalDomain KeyRepeat -int 3
-defaults write NSGlobalDomain InitialKeyRepeat -int 10
+defaults write NSGlobalDomain KeyRepeat -int 2
+defaults write NSGlobalDomain InitialKeyRepeat -int 25
 
 # Automatically illuminate built-in MacBook keyboard in low light
 defaults write com.apple.BezelServices kDim -bool true
@@ -69,6 +69,11 @@ defaults write com.apple.AppleMultitouchTrackpad ActuateDetents -bool true
 defaults write com.apple.AppleMultitouchTrackpad Clicking -bool true
 
 # Set keyboard input sources
-defaults write com.apple.HIToolbox AppleEnabledInputSources -array \
-  '{ "InputSourceKind" = "Keyboard Layout"; "KeyboardLayout ID" = 3; "KeyboardLayout Name" = German; }' \
-  '{ "Bundle ID" = "com.apple.CharacterPaletteIM"; "InputSourceKind" = "Non Keyboard Input Method"; }'
+#defaults write com.apple.HIToolbox AppleEnabledInputSources -array \
+#  '{ "InputSourceKind" = "Keyboard Layout"; "KeyboardLayout ID" = 3; "KeyboardLayout Name" = German; }' \
+#  '{ "Bundle ID" = "com.apple.CharacterPaletteIM"; "InputSourceKind" = "Non Keyboard Input Method"; }'
+
+# Setup touch bar 
+defaults write com.apple.controlstrip "$(cat touch_bar_state.plist)"
+pkill "Touch Bar agent"
+killall ControlStrip
