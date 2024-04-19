@@ -14,9 +14,9 @@
 	path = .zsh/plugins/git-open
 	url = https://github.com/paulirish/git-open.git
 
-[submodule ".config/nvim"]
-        path = .config/nvim
-        url = https://github.com/LazyVim/LazyVim.git
+#[submodule ".config/nvim"]
+#        path = .config/nvim
+#        url = https://github.com/LazyVim/LazyVim.git
 #[submodule ".config/tmux/plugins/tpm"]
 #	path = .config/tmux/plugins/tpm
 #	url = https://github.com/tmux-plugins/tpm
