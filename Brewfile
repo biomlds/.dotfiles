@@ -10,7 +10,7 @@ cask "font-hack-nerd-font"
 #brew "borders" --ignore-dependencies
 #brew "coreutils"
 #brew "ddgr"
-brw "devcontainer"
+brew "devcontainer"
 #brew "exa"
 #brew "ffmpeg"
 brew "fzf"
