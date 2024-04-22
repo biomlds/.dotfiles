@@ -34,7 +34,7 @@ brew "yazi"
 
 #brew "wget"
 #brew "xxh"
-#brew "yadm"
+brew "yadm"
 #brew "zsh-completions"
 #brew "jesseduffield/lazydocker/lazydocker"
 #cask "cyberduck"
