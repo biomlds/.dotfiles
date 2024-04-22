@@ -75,5 +75,6 @@ defaults write com.apple.AppleMultitouchTrackpad Clicking -bool true
 
 # Setup touch bar 
 defaults write com.apple.controlstrip "$(cat touch_bar_state.plist)"
+defaults write com.apple.touchbar.agent PresentationModeGlobal fullControlStrip
 pkill "Touch Bar agent"
 killall ControlStrip
