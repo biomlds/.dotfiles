@@ -7,4 +7,4 @@ alias gst="git status"
 
 #alias ls="exa --icons --group-directories-first -l"
 #alias ll="exa --icons --group-directories-first -la"
-alias ls="lsd --tree --total-size -t"
+alias tree="lsd --tree --total-size -t"
