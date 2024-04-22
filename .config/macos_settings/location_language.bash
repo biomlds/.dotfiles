@@ -12,7 +12,7 @@ defaults write NSGlobalDomain AppleMeasurementUnits -string "Centimeters"
 defaults write NSGlobalDomain AppleMetricUnits -bool true
 
 # Set the timezone; see `sudo systemsetup -listtimezones` for other values
-sudo systemsetup -settimezone "Canada/Calgary" > /dev/null
+sudo systemsetup -settimezone "America/Edmonton" > /dev/null
 
 # Show 24 hours a day
 defaults write com.apple.ical "number of hours displayed" 24
