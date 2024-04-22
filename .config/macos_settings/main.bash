@@ -39,8 +39,7 @@ sudo defaults write /Library/Preferences/com.apple.loginwindow AdminHostInfo Hos
 defaults write com.apple.print.PrintingPrefs "Quit When Finished" -bool true
 defaults write org.python.python ApplePersistenceIgnoreState -bool false
 
-#find ~/.config/macos_settings -name "*.bash" ! -name "main.bash" -exec bash {} \;
-find /Users/kirk/Documents/.dotfiles/.config/macos_settings  -name "*.bash" ! -name "main.bash" -exec bash {} \;
+find ~/.config/macos_settings -name "*.bash" ! -name "main.bash" -exec bash {} \;
 
 # Kill affected applications
 
