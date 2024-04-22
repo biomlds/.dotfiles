@@ -21,9 +21,9 @@ export WORDCHARS=${WORDCHARS//[\/]} # remove / from wordchars so that / is a sep
 [[ -f $ZSH/plugins/plugins.zsh ]] && source $ZSH/plugins/plugins.zsh
 
 ### ---- load pyenv ---------
-export PYENV_ROOT="$HOME/.pyenv"
-command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
+# export PYENV_ROOT="$HOME/.pyenv"
+# command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+# eval "$(pyenv init -)"
 
 ### add local bin to path
 export PATH=$HOME/bin:$PATH
