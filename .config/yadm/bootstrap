@@ -28,7 +28,7 @@ echo ">>> Installing brew packages.."
 brew bundle install --file ~/Brewfile
 
 # setup Mac default settings
-cd ~/.config/setup_mac/macos_settings/ && bash ~/.config/setup_mac/macos_settings/main.bash
+cd ~/.config/macos_settings/ && bash ~/.config/macos_settings/main.bash
 
 # done
 echo "Bootstrapping complete"
